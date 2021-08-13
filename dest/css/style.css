@@ -1,0 +1,212 @@
+/* Resetting styles */
+
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+:focus,
+:active {
+  outline: none;
+}
+
+a:focus,
+a:active {
+  outline: none;
+}
+
+nav,
+footer,
+header,
+aside {
+  display: inline-block;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  font-size: 100%;
+  line-height: 1;
+  font-size: 14px;
+  -ms-text-size-adjust: 100%;
+}
+
+input,
+button,
+textarea {
+  font-family: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+a,
+a:hover {
+  text-decoration: none;
+}
+
+ul li {
+  list-style: none;
+}
+
+/* Styles */
+
+.wrapper {
+  width: 100%;
+  height: 700px;
+  background: -o-linear-gradient(45deg, #f0b5ceb6, #8c6baebe);
+  background: linear-gradient(45deg, #f0b5ceb6, #8c6baebe);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.weather__content {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -ms-flex-line-pack: justify;
+  align-content: space-between;
+  padding: 50px;
+}
+
+.weather__content .weather__header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  margin-left: 30px;
+  margin-bottom: 20px;
+}
+
+.weather__content .weather__header .weather-icon img {
+  width: 100px;
+  margin-left: 20px;
+}
+
+.weather__content .weather__header form {
+  -ms-flex-item-align: center;
+  align-self: center;
+  padding: 15px 30px;
+  background-color: #5150522f;
+  border-radius: 20px;
+}
+
+.weather__content .weather__header form input {
+  font-size: 18px;
+  padding: 5px 15px;
+  border-radius: 20px;
+  color: rgba(57, 3, 128, 0.76);
+  font-weight: 500;
+  background-color: rgba(223, 197, 203, 0.555);
+}
+
+.weather__content .weather__header form input:hover {
+  -webkit-box-shadow: 5px 5px 15px 0 #250808;
+  box-shadow: 5px 5px 15px 0 #250808;
+}
+
+.weather__content .weather__main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.weather__content .weather__main > * {
+  margin-bottom: 30px;
+  margin-left: 50px;
+  color: rgba(255, 255, 255, 0.76);
+  font-weight: 400;
+}
+
+.weather__content .weather__main .city-name {
+  font-size: 36px;
+}
+
+.weather__content .weather__main .weather__main-temp {
+  font-size: 60px;
+}
+
+.weather__content .weather__main .weather__main-date {
+  word-spacing: 5px;
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.weather__content .weather__main .weather__main-day {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 22px;
+}
+
+.weather__content .weather__main .weather__main-day > * {
+  font-weight: 400;
+}
+
+.weather__content .weather__main .weather__main-day .weather-day {
+  padding-right: 10px;
+  border-right: 2px solid rgba(255, 255, 255, 0.692);
+  margin-right: 10px;
+}
+
+.weather__content .weather__main .weather__main-extra {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.weather__content .weather__main .weather__main-extra * {
+  font-weight: 400;
+  font-size: 18px;
+}
+
+.weather__content .weather__main .weather__main-extra > * {
+  margin-right: 15px;
+  padding-right: 15px;
+  border-right: 2px solid rgba(255, 255, 255, 0.692);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.weather__content .weather__main .weather__main-extra > *:before {
+  content: "";
+  width: 22px;
+  height: 22px;
+  position: relative;
+  background-color: black;
+  border-radius: 10px;
+  top: -3px;
+  left: -3px;
+}
+
+.weather__content .weather__main .weather__main-extra div h4 {
+  margin-right: 15px;
+}
+
+.weather__content .weather__main .weather__main-extra .main__wind:before {
+  background: url("../img/icwind.webp") no-repeat;
+}
+
+.weather__content .weather__main .weather__main-extra .main__hum:before {
+  background: url("../img/ichum.webp") no-repeat;
+}
+
+.weather__content .weather__main .weather__main-extra .main__rain:before {
+  background: url("../img/icrain.webp") no-repeat;
+}
