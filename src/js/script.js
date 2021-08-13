@@ -29,7 +29,7 @@ console.log(city)*/
 
 
 function weatherR() {
-    fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${key}`)
+    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${key}`)
         .then(function (resp) { return resp.json() })
         .then(function (data) {
             document.querySelector('.city-name').textContent = data.name
