@@ -22,13 +22,12 @@ let getday = date.getDate() // day (12)
 let getyear = date.getFullYear() // year (2021)
 let getweelday = date.getDay()      // day of week(4)
 let getmonth = date.getMonth()
-
 let day = dayOfWeek[getweelday - 1] 
 let month = monthOfYear[getmonth]
 
 
 let key = 'f7926112ea8a257c4d52a68840b2a89a'
-let city = 'Surgut'
+let city = 'Moscow'
 
 let input = document.querySelector('input')
 input.onchange = function() {
@@ -79,17 +78,21 @@ function weatherR() {
                 let date = new Date()
                 let hours = date.getHours()
                 let minutes = date.getMinutes()
-
-                if (hours < 10) hours = '0' + hours
+                let correctTime = hours + localTime
+                //if (hours < 10) hours = '0' + hours
                 if (minutes < 10) minutes = '0' + minutes
-                if (hours + localTime > 24) {
-                    let currect = hours + localTime - 24
+                if (correctTime > 24) {
+                    let currect = correctTime - 24
                     hours = '0' 
                     day = dayOfWeek[getweelday]
                     document.querySelector('.weather-day').textContent = `${day}`
                     document.querySelector('.weather__main-date').textContent = `${getday+1}` + 'th  ' + `${month}` + ` ${getyear}`
-                    //console.log(currect)
                     time.textContent = `${hours + +currect}:${minutes}` 
+                } else if (correctTime < 0) {
+                    day = dayOfWeek[getweelday-2]
+                    time.textContent = `${24 + +correctTime}:${minutes}`
+                    document.querySelector('.weather__main-date').textContent = `${getday-1}` + 'th  ' + `${month}` + ` ${getyear}`
+                    document.querySelector('.weather-day').textContent = `${day}` 
                 } else {
                     day = dayOfWeek[getweelday-1]
                     time.textContent = `${hours + +localTime}:${minutes}`

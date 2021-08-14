@@ -200,13 +200,13 @@ ul li {
 }
 
 .weather__content .weather__main .weather__main-extra .main__wind:before {
-  background: url("../img/icwind.webp") no-repeat;
+  background: url("../img/icwind.png") no-repeat;
 }
 
 .weather__content .weather__main .weather__main-extra .main__hum:before {
-  background: url("../img/ichum.webp") no-repeat;
+  background: url("../img/ichum.png") no-repeat;
 }
 
 .weather__content .weather__main .weather__main-extra .main__rain:before {
-  background: url("../img/icrain.webp") no-repeat;
+  background: url("../img/icrain.png") no-repeat;
 }
