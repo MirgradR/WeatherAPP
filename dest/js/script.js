@@ -39,29 +39,12 @@ input.onchange = function() {
    console.log(value) 
 }
 
-
-
-/*document.addEventListener('keydown', function(e) {
-    if (e.key === 'Enter') {
-        
-        let value = input.value
-        if (!value) return false
-        city = value
-        
-        weatherR()
-        
-    }
-})
-console.log(city)*/
-
-
-
 function weatherR() {
     fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${key}`)
         .then(function (resp) { return resp.json() })
         .then(function (data) {
             
-            let localTime = data.timezone / 3600 - 3
+            let localTime = data.timezone / 3600 //- 3
             //console.log(localTime)
             //console.log(data)
             document.querySelector('.city-name').textContent = data.name
@@ -76,7 +59,7 @@ function weatherR() {
 
             function update() {
                 let date = new Date()
-                let hours = date.getHours()
+                let hours = date.getUTCHours()//+3 
                 let minutes = date.getMinutes()
                 let correctTime = hours + localTime
                 //if (hours < 10) hours = '0' + hours
