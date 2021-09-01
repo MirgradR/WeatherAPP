@@ -101,6 +101,9 @@ ul li {
   padding: 15px 30px;
   background-color: #5150522f;
   border-radius: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 .weather__content .weather__header form input {
@@ -115,6 +118,20 @@ ul li {
 .weather__content .weather__header form input:hover {
   -webkit-box-shadow: 5px 5px 15px 0 #250808;
   box-shadow: 5px 5px 15px 0 #250808;
+}
+
+.weather__content .weather__header form .fake-btn {
+  background-color: transparent;
+}
+
+.weather__content .weather__header form .fake-btn:hover {
+  cursor: pointer;
+}
+
+.weather__content .weather__header form .fake-btn:hover img {
+  -webkit-transform: scale(1.2);
+  -ms-transform: scale(1.2);
+  transform: scale(1.2);
 }
 
 .weather__content .weather__main {
@@ -235,6 +252,11 @@ ul li {
 
   .wrapper .weather__content .weather__header form {
     padding: 5px;
+  }
+
+  .wrapper .weather__content .weather__header form input {
+    padding-right: 0;
+    width: 200px;
   }
 
   .wrapper .weather__content .weather__header .weather-icon {

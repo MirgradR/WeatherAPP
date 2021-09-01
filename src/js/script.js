@@ -1,6 +1,6 @@
 // weather
 //date
-
+//alert('Choose a city and click anywhere / on phone you can press "Done"')
 const dayOfWeek = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
 const monthOfYear = [
     "Jan",
@@ -64,7 +64,7 @@ function weatherR() {
                 let correctTime = hours + localTime
                 //if (hours < 10) hours = '0' + hours
                 if (minutes < 10) minutes = '0' + minutes
-                if (correctTime > 24) {
+                if (correctTime >= 24) {
                     let currect = correctTime - 24
                     hours = '0' 
                     day = dayOfWeek[getweelday]
