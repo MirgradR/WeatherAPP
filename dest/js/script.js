@@ -1,7 +1,7 @@
 // weather
 //date
 //alert('Choose a city and click anywhere / on phone you can press "Done"')
-const dayOfWeek = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
+const dayOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
 const monthOfYear = [
     "Jan",
     "Feb",
@@ -22,7 +22,7 @@ let getday = date.getDate() // day (12)
 let getyear = date.getFullYear() // year (2021)
 let getweelday = date.getDay()      // day of week(4)
 let getmonth = date.getMonth()
-let day = dayOfWeek[getweelday - 1] 
+let day = dayOfWeek[getweelday] 
 let month = monthOfYear[getmonth]
 
 
@@ -67,17 +67,17 @@ function weatherR() {
                 if (correctTime >= 24) {
                     let currect = correctTime - 24
                     hours = '0' 
-                    day = dayOfWeek[getweelday]
+                    day = dayOfWeek[getweelday+1]
                     document.querySelector('.weather-day').textContent = `${day}`
                     document.querySelector('.weather__main-date').textContent = `${getday+1}` + 'th  ' + `${month}` + ` ${getyear}`
                     time.textContent = `${hours + +currect}:${minutes}` 
                 } else if (correctTime < 0) {
-                    day = dayOfWeek[getweelday-2]
+                    day = dayOfWeek[6-getweelday]//-2
                     time.textContent = `${24 + +correctTime}:${minutes}`
                     document.querySelector('.weather__main-date').textContent = `${getday-1}` + 'th  ' + `${month}` + ` ${getyear}`
                     document.querySelector('.weather-day').textContent = `${day}` 
                 } else {
-                    day = dayOfWeek[getweelday-1]
+                    day = dayOfWeek[getweelday]//-1
                     time.textContent = `${hours + +localTime}:${minutes}`
                     document.querySelector('.weather__main-date').textContent = `${getday}` + 'th  ' + `${month}` + ` ${getyear}`
                     document.querySelector('.weather-day').textContent = `${day}` 
