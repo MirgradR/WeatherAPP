@@ -18,13 +18,12 @@ const monthOfYear = [
   ]
 
 let date = new Date()
-let getday = date.getDate() // day (12)
-let getyear = date.getFullYear() // year (2021)
-let getweelday = date.getDay()      // day of week(4)
+let getday = date.getDate() 
+let getyear = date.getFullYear() 
+let getweelday = date.getDay()      
 let getmonth = date.getMonth()
 let day = dayOfWeek[getweelday] 
 let month = monthOfYear[getmonth]
-
 
 let key = 'f7926112ea8a257c4d52a68840b2a89a'
 let city = 'Moscow'
@@ -38,15 +37,11 @@ input.onchange = function() {
     input.value = ''
    console.log(value) 
 }
-
 function weatherR() {
     fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${key}`)
         .then(function (resp) { return resp.json() })
         .then(function (data) {
-            
-            let localTime = data.timezone / 3600 //- 3
-            //console.log(localTime)
-            //console.log(data)
+            let localTime = data.timezone / 3600
             document.querySelector('.city-name').textContent = data.name
             document.querySelector('.weather__main-temp').innerHTML = Math.round(data.main.temp - 273) + ' &#8451;'
             document.querySelector('.weather_wind-number').textContent = data.wind.speed + ' m/s'
@@ -59,30 +54,36 @@ function weatherR() {
 
             function update() {
                 let date = new Date()
-                let hours = date.getUTCHours()//+3 
+                let hours = date.getUTCHours()
                 let minutes = date.getMinutes()
                 let correctTime = hours + localTime
-                //if (hours < 10) hours = '0' + hours
                 if (minutes < 10) minutes = '0' + minutes
                 if (correctTime >= 24) {
                     let currect = correctTime - 24
                     hours = '0' 
-                    day = dayOfWeek[getweelday+1]
+                    if (getweelday === 6) {
+                        day = dayOfWeek[0]
+                    } else {
+                        day = dayOfWeek[getweelday+1] 
+                    }
                     document.querySelector('.weather-day').textContent = `${day}`
                     document.querySelector('.weather__main-date').textContent = `${getday+1}` + 'th  ' + `${month}` + ` ${getyear}`
                     time.textContent = `${hours + +currect}:${minutes}` 
                 } else if (correctTime < 0) {
-                    day = dayOfWeek[6-getweelday]//-2
+                    if (getweelday === 0) {
+                        day = dayOfWeek[6]
+                    } else {
+                        day = dayOfWeek[getweelday-1]
+                    }
                     time.textContent = `${24 + +correctTime}:${minutes}`
                     document.querySelector('.weather__main-date').textContent = `${getday-1}` + 'th  ' + `${month}` + ` ${getyear}`
                     document.querySelector('.weather-day').textContent = `${day}` 
                 } else {
-                    day = dayOfWeek[getweelday]//-1
+                    day = dayOfWeek[getweelday]
                     time.textContent = `${hours + +localTime}:${minutes}`
                     document.querySelector('.weather__main-date').textContent = `${getday}` + 'th  ' + `${month}` + ` ${getyear}`
                     document.querySelector('.weather-day').textContent = `${day}` 
                 }
-
             }
             update()
             setInterval(update, 60000)
